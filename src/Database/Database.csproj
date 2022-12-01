@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Database.Core\Database.Core.csproj" />
+    <ProjectReference Include="..\Database.Controllers\Database.Controllers.csproj" />
   </ItemGroup>
 
 

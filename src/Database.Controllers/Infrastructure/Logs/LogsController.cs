@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Database.Controllers
+namespace Database.Controllers.Infrastructure.Logs
 {
     [Route("api/database/logs")]
     [ApiController]
