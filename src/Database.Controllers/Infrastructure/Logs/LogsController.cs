@@ -2,6 +2,7 @@
 using Database.Core;
 using Database.Core.Tables;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,10 +28,14 @@ namespace Database.Controllers.Infrastructure.Logs
         [HttpGet("{id}")]
         public Log Get(int id)
         {
-            return new Log();
+            var log = _dbContext.Logs.FirstOrDefault(log => log.Id == id);
 
+            if (log == null)
+            {
+                throw new Exception("NotFound");
+            }
 
-            return _dbContext.Logs.First(log => log.Id == id);
+            return log;
         }
 
         [HttpPost]
