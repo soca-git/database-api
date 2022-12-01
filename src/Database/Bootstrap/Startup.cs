@@ -29,10 +29,11 @@ namespace Database.Bootstrap
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
-            if (_environment.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (_environment.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            app.UseDeveloperExceptionPage();
 
             app.UseRouting();
 
