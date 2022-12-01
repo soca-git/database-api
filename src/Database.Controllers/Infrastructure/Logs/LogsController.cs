@@ -12,9 +12,9 @@ namespace Database.Controllers.Infrastructure.Logs
     [ApiController]
     public class LogsController : ControllerBase
     {
-        private readonly DataContext _dbContext;
+        private readonly DatabaseContext _dbContext;
 
-        public LogsController(DataContext dbContext)
+        public LogsController(DatabaseContext dbContext)
         {
             _dbContext = dbContext;
         }

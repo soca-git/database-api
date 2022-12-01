@@ -12,7 +12,7 @@ namespace Database.Bootstrap.Extensions
     {
         public static IServiceCollection ConfigureDatabaseConnection(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(GetConnectionString(configuration, environment)));
+            services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(GetConnectionString(configuration, environment)));
 
             return services;
         }

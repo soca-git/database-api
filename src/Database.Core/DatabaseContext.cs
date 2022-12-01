@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Database.Core
 {
-    public class DataContext : DbContext
+    public class DatabaseContext : DbContext
     {
         /// <summary>
         /// When running "Add-Migration" for the first time:
@@ -15,7 +15,7 @@ namespace Database.Core
         /// and passes it to the base constructor for DbContext.
         /// </summary>
         /// <param name="options"></param>
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
         }
 
