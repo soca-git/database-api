@@ -6,7 +6,7 @@
 > Note: this project is continuously being updated; progress is tracked [here](https://github.com/users/soca-git/projects/1/views/1).
 
 ## Database Migrations
-In order to propagate changes to the database from entity framework core, ```Microsoft.EntityFrameworkCore.Tools``` is installed into the startup project and ```Microsoft.EntityFrameworkCore.Design``` is installed into the Database.Core project.  
+In order to propagate changes to the database from entity framework core, ```Microsoft.EntityFrameworkCore.Tools``` is installed into the startup project.
 
 This exposes a set of commands in the package manager console:
 ```ps1
