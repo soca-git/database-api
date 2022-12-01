@@ -1,4 +1,4 @@
-﻿using Database.EntityFrameworkCore;
+﻿using Database.Core.Tables;
 
 namespace Database.Controllers.Contracts
 {

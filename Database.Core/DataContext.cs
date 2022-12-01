@@ -1,7 +1,7 @@
-﻿using EntityFrameworkCore.Tables;
+﻿using Database.Core.Tables;
 using Microsoft.EntityFrameworkCore;
 
-namespace EntityFrameworkCore
+namespace Database.Core
 {
     public class DataContext : DbContext
     {

@@ -1,5 +1,6 @@
 ﻿using Database.Controllers.Contracts;
-using Database.EntityFrameworkCore;
+using Database.Core;
+using Database.Core.Tables;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Database.EntityFrameworkCore
+namespace Database.Core.Tables
 {
     [Table("Log")]
     public class Log
