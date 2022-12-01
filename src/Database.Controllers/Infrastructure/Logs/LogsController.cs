@@ -1,8 +1,8 @@
 ﻿using Database.Controllers.Contracts;
 using Database.Core;
+using Database.Core.Errors;
 using Database.Core.Tables;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,9 +32,9 @@ namespace Database.Controllers.Infrastructure.Logs
 
             if (log == null)
             {
-                throw new Exception("NotFound");
+                throw new DatabaseException(DatabaseErrorFactory.EntryNotFound($"{id}"));
             }
-
+            
             return log;
         }
 

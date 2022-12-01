@@ -1,4 +1,5 @@
 using Database.Core;
+using Database.ExceptionHandling;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,7 @@ namespace Database
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("TestDatabase")));
-            services.AddControllers();
+            services.AddControllers(options => options.Filters.Add<DatabaseExceptionFilter>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
