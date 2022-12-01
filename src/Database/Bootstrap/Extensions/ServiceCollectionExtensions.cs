@@ -29,10 +29,11 @@ namespace Database.Bootstrap.Extensions
 
         private static string GetHerokuConnectionString()
         {
-            var databaseUri = new Uri("postgres://nqhthbhzbmxzfj:8b586ae4f91f42be36d6924927c8a6566633dd057312fe4adddb6ea4517053ec@ec2-99-81-137-11.eu-west-1.compute.amazonaws.com:5432/dc78m9qca8qikv");
-            string[] userInfo = databaseUri.UserInfo.Split(':', StringSplitOptions.RemoveEmptyEntries);
+            string url = Environment.GetEnvironmentVariable("DATABASE_URL");
+            var uri = new Uri(url);
+            string[] userInfo = uri.UserInfo.Split(':', StringSplitOptions.RemoveEmptyEntries);
             
-            return $"User ID={userInfo[0]};Password={userInfo[1]};Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.LocalPath.TrimStart('/')};Pooling=true;SSL Mode=Require;Trust Server Certificate=True;";
+            return $"User ID={userInfo[0]};Password={userInfo[1]};Host={uri.Host};Port={uri.Port};Database={uri.LocalPath.TrimStart('/')};Pooling=true;SSL Mode=Require;Trust Server Certificate=True;";
         }
     }
 }
