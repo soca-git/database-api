@@ -20,10 +20,11 @@ dotnet tool install --global dotnet-ef
 And add migrations & update the database as follows:
 ```ps1
 # add migration
-dotnet ef migrations add <desiredMigrationName> --startup-project .src\Database --project .src\Database.Core
+dotnet ef migrations add <desiredMigrationName> --startup-project .\src\Database --project .\src\Database.Core
 # update database
-dotnet ef database update --startup-project .src\Database --project .src\Database.Core
+dotnet ef database update --startup-project .\src\Database --project .\src\Database.Core
 ```
+Or just use the powershell scripts provided.
 
 ## Docker & Heroku Deployment
 The application is deployed via a Docker container to Heroku.  
