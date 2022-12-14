@@ -1,0 +1,547 @@
+{
+	"info": {
+		"_postman_id": "d8d8b105-659f-484a-8d02-950b93930e80",
+		"name": "Database-API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23160130"
+	},
+	"item": [
+		{
+			"name": "Infrastructure",
+			"item": [
+				{
+					"name": "Ping",
+					"item": [
+						{
+							"name": "[200] Success",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"ExpectedStatusCode\", 200);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseDatabaseUrl}}/api/database/ping",
+									"host": [
+										"{{baseDatabaseUrl}}"
+									],
+									"path": [
+										"api",
+										"database",
+										"ping"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "[200] Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseDatabaseUrl}}/api/database/ping",
+											"host": [
+												"{{baseDatabaseUrl}}"
+											],
+											"path": [
+												"api",
+												"database",
+												"ping"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain; charset=utf-8"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Server",
+											"value": "Microsoft-IIS/10.0"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Dec 2022 13:32:37 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "Hello from Database-API!"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Logs",
+					"item": [
+						{
+							"name": "GET Log",
+							"item": [
+								{
+									"name": "[200] Success",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"ExpectedStatusCode\", 200);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseDatabaseUrl}}/api/database/logs/1",
+											"host": [
+												"{{baseDatabaseUrl}}"
+											],
+											"path": [
+												"api",
+												"database",
+												"logs",
+												"1"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[200] Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseDatabaseUrl}}/api/database/logs/1",
+													"host": [
+														"{{baseDatabaseUrl}}"
+													],
+													"path": [
+														"api",
+														"database",
+														"logs",
+														"1"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 01 Dec 2022 17:09:37 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"timestamp\": \"2022-12-01T00:00:00\",\n    \"application\": \"Postman\",\n    \"action\": \"POST\",\n    \"url\": \"http://localhost:51169/api/database/logs\",\n    \"request\": \"this\",\n    \"statusCode\": 200,\n    \"response\": \"that\",\n    \"controller\": \"LogsController\",\n    \"callId\": \"postman-123\"\n}"
+										}
+									]
+								},
+								{
+									"name": "[422] Non-Existent Log",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"ExpectedStatusCode\", 422);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseDatabaseUrl}}/api/database/logs/-1",
+											"host": [
+												"{{baseDatabaseUrl}}"
+											],
+											"path": [
+												"api",
+												"database",
+												"logs",
+												"-1"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[422] Non-Existent Log",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseDatabaseUrl}}/api/database/logs/-1",
+													"host": [
+														"{{baseDatabaseUrl}}"
+													],
+													"path": [
+														"api",
+														"database",
+														"logs",
+														"-1"
+													]
+												}
+											},
+											"status": "Unprocessable Entity",
+											"code": 422,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 01 Dec 2022 17:10:39 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"statusCode\": 422,\n    \"title\": \"A database error occurred\",\n    \"error\": {\n        \"code\": 100,\n        \"message\": \"A matching entry was not found\",\n        \"property\": \"-1\"\n    }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GET Logs",
+							"item": [
+								{
+									"name": "[200] Success",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"ExpectedStatusCode\", 200);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseDatabaseUrl}}/api/database/logs",
+											"host": [
+												"{{baseDatabaseUrl}}"
+											],
+											"path": [
+												"api",
+												"database",
+												"logs"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[200] Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseDatabaseUrl}}/api/database/logs",
+													"host": [
+														"{{baseDatabaseUrl}}"
+													],
+													"path": [
+														"api",
+														"database",
+														"logs"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 01 Dec 2022 16:04:40 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 1,\n        \"timestamp\": \"2022-12-01T00:00:00\",\n        \"application\": \"Postman\",\n        \"action\": \"POST\",\n        \"url\": \"http://localhost:51169/api/database/logs\",\n        \"request\": \"this\",\n        \"statusCode\": 200,\n        \"response\": \"that\",\n        \"controller\": \"LogsController\",\n        \"callId\": \"postman-123\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "POST Create Log",
+							"item": [
+								{
+									"name": "[200] Success",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.collectionVariables.set(\"ExpectedStatusCode\", 200);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"timestamp\": \"{{todaysDate}}\",\r\n    \"Action\": \"POST\",\r\n    \"Application\": \"Postman\",\r\n    \"url\": \"{{baseDatabaseUrl}}/api/database/logs\",\r\n    \"request\": \"this\",\r\n    \"statusCode\": 200,\r\n    \"response\": \"that\",\r\n    \"controller\": \"LogsController\",\r\n    \"callId\": \"postman-123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseDatabaseUrl}}/api/database/logs",
+											"host": [
+												"{{baseDatabaseUrl}}"
+											],
+											"path": [
+												"api",
+												"database",
+												"logs"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "[200] Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"timestamp\": \"{{todaysDate}}\",\r\n    \"Action\": \"POST\",\r\n    \"Application\": \"Postman\",\r\n    \"url\": \"{{baseDatabaseUrl}}/api/database/logs\",\r\n    \"request\": \"this\",\r\n    \"statusCode\": 200,\r\n    \"response\": \"that\",\r\n    \"controller\": \"LogsController\",\r\n    \"callId\": \"postman-123\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseDatabaseUrl}}/api/database/logs",
+													"host": [
+														"{{baseDatabaseUrl}}"
+													],
+													"path": [
+														"api",
+														"database",
+														"logs"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 01 Dec 2022 15:59:37 GMT"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Collection Pre-Request Script | START\");",
+					"",
+					"// SET ENVIRONMENT VARIABLES",
+					"var moment = require('moment'); // i.e. this moment",
+					"pm.environment.set(\"todaysDate\", moment().format((\"YYYY-MM-DD\")));",
+					"pm.environment.set(\"weekToDate\", moment().add(7, 'days').format((\"YYYY-MM-DD\")));",
+					"pm.environment.set(\"monthToDate\", moment().add(1, 'months').format((\"YYYY-MM-DD\")));",
+					"pm.environment.set(\"yearToDate\", moment().add(1, 'years').format((\"YYYY-MM-DD\")));",
+					"",
+					"// SET COLLECTION VARIABLES",
+					"pm.collectionVariables.set(\"ExpectedStatusCode\", \"<not-specified>\");",
+					"pm.collectionVariables.set(\"ExpectedErrorCode\", \"<not-specified>\");",
+					"pm.collectionVariables.set(\"ExpectedErrorMessageSubstring\", \"<not-specified>\");",
+					"",
+					"//SET DEFAULT HEADERS",
+					"const headerNames = [\"Origin\"];",
+					"",
+					"headerNames.forEach(headerName => {",
+					"    var headerEnvironmentValue = pm.environment.get(headerName);",
+					"    pm.request.headers.upsert({key: headerName, value: headerEnvironmentValue});",
+					"    console.log(`Set ${headerName} : ${headerEnvironmentValue}`);",
+					"});",
+					"",
+					"console.log(\"Collection Pre-Request Script | END\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Collection Tests Script | START\");",
+					"",
+					"// 1 - Check status code is not 500",
+					"pm.test(\"Status code is not 500\", () => {",
+					"    pm.response.to.not.have.status(500);",
+					"});",
+					"",
+					"// 2 - Check status code matches expected",
+					"var expectedStatusCode = pm.collectionVariables.get(\"ExpectedStatusCode\");",
+					"pm.test(`Status code is \"${expectedStatusCode}\"`, () => {",
+					"    pm.expect(pm.response.code).to.eql(expectedStatusCode);",
+					"});",
+					"",
+					"// 3 - Check response body is not empty",
+					"if (pm.response.code != 204 && pm.response.code != 500)",
+					"{",
+					"    pm.test(\"Response is not empty\", () => {",
+					"        pm.expect(pm.response).to.not.be.empty;",
+					"    });",
+					"}",
+					"",
+					"// 4 - Check error response body contains error information and error code matches expected.",
+					"// Optionally check the error message contains a specified substring.",
+					"if (pm.response.code != 200 && pm.response.code != 204)",
+					"{",
+					"    pm.test(\"Error response contains error information\", () => {",
+					"        pm.expect(pm.response.json().Errors).to.not.be.null;",
+					"        pm.expect(pm.response.json().Errors).to.not.be.empty;",
+					"    });",
+					"",
+					"    var expectedErrorCode = pm.collectionVariables.get(\"ExpectedErrorCode\");",
+					"    pm.test(`Error response code is \"${expectedErrorCode}\"`, () => {",
+					"        pm.expect(pm.response.json().Errors[0].Code).to.eql(expectedErrorCode)",
+					"    });",
+					"",
+					"    var expectedErrorMessageSubstring = pm.collectionVariables.get(\"ExpectedErrorMessageSubstring\");",
+					"    if (expectedErrorMessageSubstring != \"<not-specified>\")",
+					"    {",
+					"        pm.test(`Error response message contains \"${expectedErrorMessageSubstring}\"`, () => {",
+					"            pm.expect(pm.response.json().Errors[0].Message).to.contain(expectedErrorMessageSubstring)",
+					"        });",
+					"    }",
+					"}",
+					"",
+					"console.log(\"Collection Tests Script | END\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ExpectedStatusCode",
+			"value": ""
+		},
+		{
+			"key": "ExpectedErrorCode",
+			"value": ""
+		},
+		{
+			"key": "ExpectedErrorMessageSubstring",
+			"value": ""
+		}
+	]
+}
